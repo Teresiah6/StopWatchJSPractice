@@ -9,16 +9,25 @@ let time = JSON.parse(localStorage.getItem('time'))||{
 seconds = time.seconds;
 minutes = time.minutes;
 hour = time.minutes;
+let isPlaying = false;
 
 document.querySelector('.js-start-btn')
   .addEventListener('click', ()=>{
+    isPlaying = true;
     intervalId =setInterval(()=>{
       
-     changeTime();
-    }, 1000);
-  });
+        changeTime();
+       }, 1000);
+        
+
+     }
+
+    
+    );
 
   function changeTime(){
+    isPlaying = true;
+    
     seconds++;
     document.getElementById('seconds').innerText = `${seconds}`;
     if(seconds < 10){
@@ -40,19 +49,25 @@ document.querySelector('.js-start-btn')
     else if(minutes > 59){
       minutes = 0;
       hour++;
-      document.getElementById('hour').innerText = `${hour}`
+      document.getElementById('hour').innerText = `${hour}`;
     }
     localStorage.setItem('seconds', JSON.stringify(time));
  
+    
+   // document.getElementById('startbutton').disabled = true;    
+    
   }
+  
 
   document.querySelector('.js-stop-btn')
     .addEventListener('click', ()=>{
+      isPlaying = false;
       clearInterval(intervalId);
 
     });
   document.querySelector('.js-reset-btn')
     .addEventListener('click', ()=>{
+      isPlaying= false;
       seconds = 0;
       minutes = 0;
       hour = 0;
