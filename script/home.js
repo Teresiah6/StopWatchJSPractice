@@ -63,4 +63,5 @@ document.querySelector('.js-reset-btn').addEventListener('click', () => {
 
   document.querySelector('.js-start-btn').disabled = false;
   document.querySelector('.js-start-btn').textContent = 'Start';
+  isCounting = false;
 });
