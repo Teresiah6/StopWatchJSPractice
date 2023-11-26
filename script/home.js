@@ -10,8 +10,8 @@ let hour = time.hour;
 let isCounting = false;
 
 document.querySelector('.js-start-btn').addEventListener('click', () => {
-  if (!isPlaying) {
-    isPlaying = true;
+  if (!isCounting) {
+    isCounting = true;
     intervalId = setInterval(() => {
       changeTime();
     }, 1000);
@@ -45,7 +45,7 @@ function changeTime() {
 
 document.querySelector('.js-stop-btn').addEventListener('click', () => {
   clearInterval(intervalId);
-  isPlaying = false;
+  isCounting = false;
 
   document.querySelector('.js-start-btn').disabled = false;
   document.querySelector('.js-start-btn').textContent = 'Resume';
