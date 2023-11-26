@@ -7,7 +7,7 @@ let time = JSON.parse(localStorage.getItem('time')) || {
 let seconds = time.seconds;
 let minutes = time.minutes;
 let hour = time.hour;
-let isPlaying = false;
+let isCounting = false;
 
 document.querySelector('.js-start-btn').addEventListener('click', () => {
   if (!isPlaying) {
